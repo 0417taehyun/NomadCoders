@@ -1,0 +1,13 @@
+{
+  "name": "blockchain-with-typescript",
+  "version": "1.0.0",
+  "description": "Learning TypeScript with making the Blockchain",
+  "main": "index.js",
+  "repository": "https://github.com/0417taehyun/NomadCoders",
+  "author": "weekwith.me <leddoby@weekwith.me>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+  }
+}
