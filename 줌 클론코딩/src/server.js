@@ -1,5 +1,5 @@
 import http from "http";
-import WebScoket, { WebSocketServer } from "ws";
+import { WebSocketServer } from "ws";
 import express from "express";
 
 const app = express();
@@ -17,16 +17,51 @@ const handleListen = () => console.log(`Listening on http://localhost:${port}`)
 const server = http.createServer(app);
 const wss = new WebSocketServer({server});
 
+const sockets = {};
 
-wss.on("connection", (socket) => {
-    console.log("Connected");
+function makeMessage(type, payload) {
+    const message = {type, payload};
+    return JSON.stringify(message);
+}
+
+
+wss.on("connection", (socket, req) => {
+    const id = req.headers["sec-websocket-key"];
+
+    socket.nickname = "Anonymous";
+    sockets[id] = socket;
+
     socket.on("message", (message) => {
-        console.log(message.toString('utf8'));
+        const response = JSON.parse(message);
+        
+        switch (response.type) {
+            case "nickname":
+                sockets[id].nickname = response.payload;
+                break;
+
+            case "message":
+
+                const nickname = sockets[id].nickname;
+
+                for (const [_, socketInformation] of Object.entries(sockets)) {
+                    const payload = {nickname, "message": response.payload};
+                    socketInformation.send(makeMessage("message", payload));                
+                };
+                break;
+        }
+
     });
+
     socket.on("close", () => {
+        const nickname = sockets[id].nickname;
+        delete sockets[id];
+
+        for (const [_, socketInformation] of Object.entries(sockets)) {
+            const pyaload = {nickname, "message": "Lefted"}
+            socketInformation.send(makeMessage("closed", payload));
+        }
         console.log("Disconnected")
-    })
-    socket.send("Hello!");
+    });
 });
 
 server.listen(port, handleListen);
