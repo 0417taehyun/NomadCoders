@@ -19,12 +19,6 @@ const wss = new WebSocketServer({server});
 
 const sockets = {};
 
-function makeMessage(type, payload) {
-    const message = {type, payload};
-    return JSON.stringify(message);
-}
-
-
 wss.on("connection", (socket, req) => {
     const id = req.headers["sec-websocket-key"];
 
@@ -40,12 +34,10 @@ wss.on("connection", (socket, req) => {
                 break;
 
             case "message":
-
                 const nickname = sockets[id].nickname;
 
                 for (const [_, socketInformation] of Object.entries(sockets)) {
-                    const payload = {nickname, "message": response.payload};
-                    socketInformation.send(makeMessage("message", payload));                
+                    socketInformation.send(`${nickname}: ${response.payload}`);                
                 };
                 break;
         }
@@ -57,10 +49,9 @@ wss.on("connection", (socket, req) => {
         delete sockets[id];
 
         for (const [_, socketInformation] of Object.entries(sockets)) {
-            const pyaload = {nickname, "message": "Lefted"}
-            socketInformation.send(makeMessage("closed", payload));
+            socketInformation.send(`${nickname}: has left`);
         }
-        console.log("Disconnected")
+        console.log("Disconnected");
     });
 });
 
