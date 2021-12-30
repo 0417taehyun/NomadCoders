@@ -1,10 +1,9 @@
 import http from "http";
-import { WebSocketServer } from "ws";
+import SocketIO from "socket.io";
 import express from "express";
 
 const app = express();
 const port = 3000;
-
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
@@ -15,44 +14,43 @@ app.get("/*", (_, res) => res.redirect("/"));
 const handleListen = () => console.log(`Listening on http://localhost:${port}`)
 
 const server = http.createServer(app);
-const wss = new WebSocketServer({server});
+const io = SocketIO(server);
 
-const sockets = {};
+const rooms = {};
 
-wss.on("connection", (socket, req) => {
-    const id = req.headers["sec-websocket-key"];
+io.on("connection", (socket) => {
+    socket.emit("showRooms", {statusCode: 200, data: rooms});
 
-    socket.nickname = "Anonymous";
-    sockets[id] = socket;
+    socket.on("createRoom", (message, cb) => {
+        const name = message.name;
+        const password = message.password;
 
-    socket.on("message", (message) => {
-        const response = JSON.parse(message);
-        
-        switch (response.type) {
-            case "nickname":
-                sockets[id].nickname = response.payload;
-                break;
-
-            case "message":
-                const nickname = sockets[id].nickname;
-
-                for (const [_, socketInformation] of Object.entries(sockets)) {
-                    socketInformation.send(`${nickname}: ${response.payload}`);                
-                };
-                break;
+        if (rooms[name] === undefined) {
+            rooms[name] = {password, users: [socket.id]};
+            cb(201, []);
+            socket.broadcast.emit("createRoom", ({name}));
+        } else {
+            cb(makeResponse(409, []));
         }
+    })
 
-    });
+    socket.on("joinRoom", (message, cb) => {
+        const name = message.name;
 
-    socket.on("close", () => {
-        const nickname = sockets[id].nickname;
-        delete sockets[id];
+        if (rooms[name].password) {
+            socket.emit("joinRoom", () => {
 
-        for (const [_, socketInformation] of Object.entries(sockets)) {
-            socketInformation.send(`${nickname}: has left`);
+            })
         }
-        console.log("Disconnected");
-    });
-});
+    })
+
+    socket.on("createUser", (message, cb) => {
+
+    })
+
+    socket.on("sendMessage", () => {
+
+    })
+})
 
 server.listen(port, handleListen);
