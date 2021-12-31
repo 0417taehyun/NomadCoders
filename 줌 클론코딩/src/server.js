@@ -16,41 +16,56 @@ const handleListen = () => console.log(`Listening on http://localhost:${port}`)
 const server = http.createServer(app);
 const io = SocketIO(server);
 
+
+// fake database
 const rooms = {};
 
-io.on("connection", (socket) => {
-    socket.emit("showRooms", {statusCode: 200, data: rooms});
 
-    socket.on("createRoom", (message, cb) => {
+io.on("connection", (socket) => {
+    io.sockets.emit("showRooms", rooms);
+
+    socket.on("createRoom", (message) => {
+        const users = [{nickname: message.nickname, sid: socket.id}]
         const name = message.name;
         const password = message.password;
+        const type = message.type;
 
-        if (rooms[name] === undefined) {
-            rooms[name] = {password, users: [socket.id]};
-            cb(201, []);
-            socket.broadcast.emit("createRoom", ({name}));
+        rooms[name] = {password, type, users};
+        socket.join(name);
+        io.sockets.emit("showRooms", rooms);
+    })
+
+    socket.on("joinRoom", (message, callBack) => {
+        if (rooms.get(message.roomName) !== undefined) {
+            // 해당 방이 존재하지 않는 경우
+
         } else {
-            cb(makeResponse(409, []));
+            const roomInfo = rooms.get(message.roomName);
+
+            if (
+                (roomInfo.type === "public") ||
+                (
+                    (roomInfo.type === "private") &&
+                    (roomInfo.password === message.password)
+                )
+            ) {
+                roomInfo.users.push({nickname, sid: socket.id});
+
+                // 방에 정상적으로 입장했을 때 환영 인사
+                socket.to(message.roomName).emit("sendMessage", );
+
+            } else {
+                // private 방인데 비밀번호가 틀린 경우
+            }
         }
     })
 
-    socket.on("joinRoom", (message, cb) => {
-        const name = message.name;
-
-        if (rooms[name].password) {
-            socket.emit("joinRoom", () => {
-
-            })
-        }
+    socket.on("leaveRoom", (message) => {
+        // 방을 떠났을 때 떠났다는 걸 알려야 한다.
+        
+        socket.leave()
     })
-
-    socket.on("createUser", (message, cb) => {
-
-    })
-
-    socket.on("sendMessage", () => {
-
-    })
+    
 })
 
 server.listen(port, handleListen);

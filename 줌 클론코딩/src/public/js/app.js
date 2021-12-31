@@ -1,102 +1,52 @@
 const socket = io();
 
-const roomDiv = document.querySelector("#room");
-const roomUl = roomDiv.querySelector("ul");
-const roomLi = roomUl.querySelector("li");
-const roomForm = roomDiv.querySelector("form");
+const serachRoomInput = document.querySelector("#search-room-input");
+const searchRoomBtn = document.querySelector("#search-room-btn");
+const createRoomBtn = document.querySelector("#create-room-btn");
+
+const createRoomContainer = document.querySelector("#create-room");
+const modalExitBtn = document.querySelector("#modal-exit-btn");
+const modalEnterBtn = document.querySelector("#modal-enter-btn");
 
 
-socket.on("showRooms", (response) => {
-    if (response.statusCode === 200) {
-        for (const[name, _] of Object.entries(response.data)) {
-            const li = document.createElement("li");
-            const a = document.createElement("a");
+function searchRoomHandler(event) {
+    event.preventDefault();
+    const value = serachRoomInput.value;
+    socket.emit("searchRoom", (value) => {
 
-            li.appendChild(a);
-            a.innerText = name
-            roomUl.append(li);
-        }
-    }
-})
+    });
 
-socket.on("createRoom", (response) => {
-    console.log(response)
+    serachRoomInput.value = "";
+}
 
-    const li = document.createElement("li");
-    li.innerText = response.name;
-    roomUl.append(li);
-})
+
+function createRoomHandler(event) {
+    event.preventDefault();
+
+    createRoomContainer.style.display = "flex";
+
+
+}
+
+function modalExitHandler(event) {
+    event.preventDefault();
+
+    createRoomContainer.style.display = "none";
+}
+
+function modalEnterHandler(event) {
+    event.preventDefault();
+
+    joinRoomContainer.querySelector("")
+
+    socket.emit("joinRoom", )
+}
 
 socket.on("joinRoom", () => {
-    alert("Enter Password: ")
-})
-
-socket.on("sendMessage", () => {
 
 })
 
-socket.on("deleteRoom", () => {
-
-})
-
-socket.on("leaveRoom", () => {
-
-})
-
-function handleCreateRoom(event) {
-    event.preventDefault();
-
-    const name = roomForm.querySelector("#room-name");
-    const password = roomForm.querySelector("#room-password");
-
-    const nameValue = name.value
-    const passwordValue = password.value
-    
-    socket.emit(
-        "createRoom",
-        {name: nameValue, password: passwordValue},
-        (statusCode, data) => {
-            if (statusCode === 201) {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-
-                li.appendChild(a);
-                a.innerText = nameValue;
-                roomUl.append(li);
-                
-            } else if (statusCode === 409) {
-                alert(`${nameValue} aleary exists!`);
-            }
-        }
-    )
-
-    name.value = '';
-    password.value = '';
-}
-
-function handleJoinRoom(event) {
-    event.preventDefault();
-
-    const name = roomLi.querySelector("a").text;
-
-    socket.emit(
-        "joinRoom",
-        {name},
-        
-    )
-
-}
-
-function handleCreateNickname(event) {
-
-}
-
-function handleSendMessage(event) {
-
-}
-
-roomForm.addEventListener("submit", handleCreateRoom);
-
-if (roomLi) {
-    roomLi.addEventListener("click", handleJoinRoom);
-}
+searchRoomBtn.addEventListener("click", searchRoomHandler);
+createRoomBtn.addEventListener("click", createRoomHandler);
+modalExitBtn.addEventListener("click", modalExitHandler);
+modalEnterBtn.addEventListener("click", modalEnterHandler);

@@ -4,30 +4,108 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
         link(rel="stylesheet", href="/public/css/main.css")
-        title Zoom Clone Coding
+        title 줌 클론코딩
     body 
         header
-            h1 Big Welcome
+            h1 줌 클론코딩
         main
-            div#room
-                ul.no-bullets
-                form
-                    div
-                        input(type="text", placeholder="Enter Room Name", required)#room-name
-                        input(type="text", placeholder="Enter Room Password")#room-password
-                        button Enter
+            div.outer
+                div.list-wrapper
+                    div.list-header
+                        div.wrapper
+                            h3 방 이름
+                            form(onsubmit="return false")
+                                input(type="text")#search-room-input
+                        div.btn-wrapper
+                            span#search-room-btn 검색
+                            span#create-room-btn 방 만들기
+                    div.list
+                        div.room-wrapper
+                            span.room-name.public 첫 번째 방
+                            span.cnt-users 인원수 1 / 4
+                        div.room-wrapper
+                            span.room-name.private 두 번째 방
+                            span.cnt-users 인원수 2 / 4
+                        div.room-wrapper
+                            span.room-name.public 세 번째 방
+                            span.cnt-users 인원수 3 / 4
+                        div.room-wrapper
+                            span.room-name.private 네 번째 방
+                            span.cnt-users 인원수 4 / 4                            
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4    
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 다섯 번째 방
+                            span.cnt-users 인원수 4 / 4  
+                        div.room-wrapper
+                            span.room-name.private 12섯 번째 방
+                            span.cnt-users 인원수 4 / 4                                                                                                                                                                                                                                                      
 
-            div.modal-container
-                div.modal
-                    input(type="text", placeholder="Enter Room Password")
+            div.modal-container#create-room
+                div.modal-window
+                    div.modal-header
+                        h2 방 만들기
+                    div.modal-body-wrapper
+                        div.modal-body
+                            form.modal-form
+                                h4 방 설명
+                                input.room-info-input(type="text", placeholder="nickname")
+                        
+                        div.modal-body
+                            form.modal-form
+                                h4 닉네임
+                                input.modal-input(type="text", placeholder="nickname", required)
+                            form.modal-form#room-password
+                                h4 방 비밀번호
+                                input.modal-input(type="text", placeholder="password", required)
+                    div.modal-fotter
+                        span.modal-btn#modal-exit-btn 닫기
+                        span.modal-btn#room-create-btn 만들기
 
-            div#message
-                ul.no-bullets
-                form
-                    input(type="text", placeholder="Enter Message", required)
-                    button Send
+
+            div.modal-container#create-room
+                div.modal-window
+                    div.modal-header
+                        h2 방 만들기
+                    div.modal-body-wrapper
+                        div.modal-body
+                            form.modal-form
+                                h4 방 설명
+                                input.room-info-input(type="text", placeholder="nickname")
+                        
+                        div.modal-body
+                            form.modal-form
+                                h4 닉네임
+                                input.modal-input(type="text", placeholder="nickname", required)
+                            form.modal-form#room-password
+                                h4 방 비밀번호
+                                input.modal-input(type="text", placeholder="password", required)
+                    div.modal-fotter
+                        span.modal-btn#modal-exit-btn 닫기
+                        span.modal-btn#modal-enter-btn 입장
+
+
+
 
         script(src="/socket.io/socket.io.js")
         script(src="/public/js/app.js")
