@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>카카오톡 클론코딩</title>
+  </head>
+  <body>
+    <div class="status-bar">
+      <div class="status-bar__column">
+        <span>weekwith.me</span>
+        <i class="fas fa-wifi"></i>
+        <!-- Todo: Wifi Icon -->
+      </div>
+      <div class="status-bar__column">
+        <span>18:43</span>
+      </div>
+      <div class="status-bar__column">
+        <span>11%</span>
+        <i class="fas fa-battery-quarter fa-lg"></i>
+        <i class="fas fa-bolt"></i>
+        <!-- Todo: Batter Icon -->
+        <!-- Todo: Lightning Icon -->
+      </div>
+    </div>
+
+    <header class="welcome-header">
+      <h1 class="welcome-header__title">Welcome to KakaoTalk</h1>
+      <p class="welcome-header__text">
+        If you have a Kakao Account, <br />
+        sign in with your email or phone number.
+      </p>
+    </header>
+
+    <div class="sign-in">
+      <form class="sign-in__form">
+        <input
+          class="sign-in__form-account"
+          type="text"
+          placeholder="Email or phone number"
+        />
+        <input
+          class="sign-in__form-password"
+          type="password"
+          placeholder="Password"
+        />
+      </form>
+
+      <form class="sign-in__submit">
+        <input class="sign-in__submit-login" type="submit" value="Log In" />
+        <input class="sign-in__submit-sign-up" type="submit" value="Sign Up" />
+      </form>
+
+      <a class="account-link" href="#">Find Kakao Account or Password</a>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
