@@ -34,27 +34,31 @@
       </p>
     </header>
 
-    <div class="sign-in">
-      <form class="sign-in__form">
-        <input
-          class="sign-in__form-account"
-          type="text"
-          placeholder="Email or phone number"
-        />
-        <input
-          class="sign-in__form-password"
-          type="password"
-          placeholder="Password"
-        />
-      </form>
+    <form action="friend.html" method="get" class="sign-in-form">
+      <input
+        class="sign-in-form__input sign-in-form__input-account"
+        type="text"
+        placeholder="Email or phone number"
+      />
+      <input
+        class="sign-in-form__input sign-in-form__input-password"
+        type="password"
+        placeholder="Password"
+      />
 
-      <form class="sign-in__submit">
-        <input class="sign-in__submit-login" type="submit" value="Log In" />
-        <input class="sign-in__submit-sign-up" type="submit" value="Sign Up" />
-      </form>
+      <input
+        class="sign-in-form__button sign-in-form__button-sign-in"
+        type="submit"
+        value="Sign In"
+      />
+      <input
+        class="sign-in-form__button sign-in-form__button-sign-up"
+        type="submit"
+        value="Sign Up"
+      />
 
-      <a class="account-link" href="#">Find Kakao Account or Password</a>
-    </div>
+      <a class="sign-in-form__link" href="#">Find Kakao Account or Password</a>
+    </form>
 
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"

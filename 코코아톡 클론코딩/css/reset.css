@@ -124,6 +124,10 @@ table {
   border-spacing: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 input {
   border-style: none;
 }
