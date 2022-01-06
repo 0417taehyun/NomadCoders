@@ -37,6 +37,7 @@
 }
 
 .sign-in-form__button {
+  font-size: large;
   cursor: pointer;
   margin: 10px 0;
   padding: 15px 0;
@@ -59,5 +60,4 @@
 
 .sign-in-form__link {
   text-align: center;
-  color: inherit;
 }
