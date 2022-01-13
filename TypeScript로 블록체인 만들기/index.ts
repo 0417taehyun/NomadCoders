@@ -1,11 +1,11 @@
-console.log("This is TypeScript.")
+console.log("This is TypeScript.");
 
-const name = 'James';
+const name = "James";
 const age = 21;
-const gender = 'male';
+const gender = "male";
 
 const sayHi = (name: string, age: number, gender?) => {
-    console.log(`Hello ${name}! You are ${age} and ${gender}`)
+  console.log(`Hello ${name}! You are ${age} and ${gender}`);
 };
 
 sayHi(name, age); // gender 타입이 ?이므로 이는 곧 선택적(Optional)인 것을 의미해서 굳이 값을 넘겨주지 않더라도 정상적으로 컴파일 된다.
