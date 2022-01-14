@@ -1,0 +1,45 @@
+.user-profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-profile__column {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile__avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.user-profile__avatar--small {
+  width: 40px;
+  height: 40px;
+}
+
+.user-profile__text {
+  margin: 0 10px;
+}
+
+.user-profile__text--small {
+}
+
+.user-profile__nickname {
+  font-weight: bold;
+}
+
+.user-profile__status-message {
+  font-size: small;
+  margin-top: 5px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.user-profile__music {
+  padding: 5px;
+  border: 1px solid green;
+  border-radius: 10px;
+  font-size: 14px;
+}

@@ -4,6 +4,8 @@
 
 /* Components */
 @import "./components/status-bar.css";
+@import "./components/user-profile.css";
+@import "./components/screen-main.css";
 @import "./components/screen-header.css";
 @import "./components/navigation-bar.css";
 
