@@ -2,10 +2,23 @@
   display: block;
   text-align: center;
   padding: 15px;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: var(--gray);
 }
 
 .friends-display__link i {
   margin: 0 5px;
   color: rgba(0, 0, 0, 0.3);
+}
+
+.channel-link {
+  font-size: small;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.screen-main__list-wrapper {
+  overflow: scroll;
+}
+
+.scree-main__list-friends {
+  bottom: 20px;
 }

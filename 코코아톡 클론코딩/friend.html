@@ -32,12 +32,6 @@
       </div>
     </header>
 
-    <a class="friends-display__link" href="#">
-      <i class="fas fa-info-circle"></i>
-      Friends' Names Display
-      <i class="fas fa-chevron-right fa-xs"></i>
-    </a>
-
     <main class="screen-main">
       <div class="user-profile">
         <div class="user-profile__column">
@@ -53,31 +47,38 @@
       </div>
 
       <div class="screen-main__list">
-        <span class="screen-main__list-title">Channel</span>
-        <a href="#"><i class="fas fa-chevron-up fa-xs"></i></a>
-        <div class="user-profile">
+        <div class="screen-main__header">
+          <span class="screen-main__list-title">Channel</span>
+          <a href="#" class="active-button"
+            ><i class="fas fa-chevron-up fa-xs"></i
+          ></a>
+        </div>
+        <div class="user-profile channel-profile">
           <div class="user-profile__column">
             <img
               src="./image/logo.jpeg"
               class="user-profile__avatar user-profile__avatar--small"
             />
             <div class="user-profile__text">
-              <h4 class="user-profile__nickname">Nicolas</h4>
-              <h6 class="user-profile__status-message">Be Happy</h6>
+              <h4 class="user-profile__nickname">Channel</h4>
             </div>
           </div>
           <div class="user-profile__column">
-            <a href="#" class="user-profile__music"> Good Day - Surfaces </a>
+            <a href="#" class="channel-link">
+              11
+              <i class="fas fa-chevron-right fa-xs"></i>
+            </a>
           </div>
         </div>
       </div>
-      <div class="screen-main__list">
+
+      <div class="screen-main__list screen-main__list-friends">
         <div class="screen-main__header">
-          <span class="screen-main__list-title">Friends</span>
+          <span class="screen-main__list-title">Friends 3</span>
           <a href="#"><i class="fas fa-chevron-up fa-xs"></i></a>
         </div>
-        <ul>
-          <li>
+        <ul class="screen-main__list-wrapper">
+          <li class="screen-main__list-user">
             <div class="user-profile">
               <div class="user-profile__column">
                 <img
@@ -85,18 +86,30 @@
                   class="user-profile__avatar user-profile__avatar--small"
                 />
                 <div class="user-profile__text">
-                  <h4 class="user-profile__nickname">Nicolas</h4>
-                  <h6 class="user-profile__status-message">Be Happy</h6>
+                  <h4 class="user-profile__nickname">Alex</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Tom</h4>
+                  <h6 class="user-profile__status-message">Keep Going</h6>
                 </div>
               </div>
               <div class="user-profile__column">
-                <a href="#" class="user-profile__music">
-                  Good Day - Surfaces
-                </a>
+                <a href="#" class="user-profile__music"> Sims - Lauv </a>
               </div>
             </div>
           </li>
-          <li>
+          <li class="screen-main__list-user">
             <div class="user-profile">
               <div class="user-profile__column">
                 <img
@@ -104,18 +117,13 @@
                   class="user-profile__avatar user-profile__avatar--small"
                 />
                 <div class="user-profile__text">
-                  <h4 class="user-profile__nickname">Nicolas</h4>
-                  <h6 class="user-profile__status-message">Be Happy</h6>
+                  <h4 class="user-profile__nickname">Chris</h4>
                 </div>
               </div>
-              <div class="user-profile__column">
-                <a href="#" class="user-profile__music">
-                  Good Day - Surfaces
-                </a>
-              </div>
+              <div class="user-profile__column"></div>
             </div>
           </li>
-          <li>
+          <li class="screen-main__list-user">
             <div class="user-profile">
               <div class="user-profile__column">
                 <img
@@ -123,15 +131,164 @@
                   class="user-profile__avatar user-profile__avatar--small"
                 />
                 <div class="user-profile__text">
-                  <h4 class="user-profile__nickname">Nicolas</h4>
-                  <h6 class="user-profile__status-message">Be Happy</h6>
+                  <h4 class="user-profile__nickname">Chris</h4>
                 </div>
               </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
               <div class="user-profile__column">
-                <a href="#" class="user-profile__music">
-                  Good Day - Surfaces
-                </a>
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
               </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
+            </div>
+          </li>
+          <li class="screen-main__list-user">
+            <div class="user-profile">
+              <div class="user-profile__column">
+                <img
+                  src="./image/logo.jpeg"
+                  class="user-profile__avatar user-profile__avatar--small"
+                />
+                <div class="user-profile__text">
+                  <h4 class="user-profile__nickname">Chris</h4>
+                </div>
+              </div>
+              <div class="user-profile__column"></div>
             </div>
           </li>
         </ul>

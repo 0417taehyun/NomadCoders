@@ -11,7 +11,32 @@
   border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.screen-main__list {
+  margin-top: 20px;
+}
+
+.screen-main__list-header {
+  margin: 10px 0;
+}
+
 .screen-main__list-title {
   font-size: small;
   color: rgba(0, 0, 0, 0.6);
+  margin: 10px 0;
+}
+
+.screen-main__list-user {
+  margin-bottom: 20px;
+}
+
+.screen-main__list {
+  overflow: scroll;
+}
+
+.screen-main__list-friends {
+  box-sizing: content-box;
+}
+
+.screen-main__list-wrapper {
+  margin-bottom: 40px;
 }

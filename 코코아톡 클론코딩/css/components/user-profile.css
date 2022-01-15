@@ -15,9 +15,16 @@
   border-radius: 20px;
 }
 
-.user-profile__avatar--small {
+.user-profile__avatar--medium {
   width: 40px;
   height: 40px;
+  border-radius: 15px;
+}
+
+.user-profile__avatar--small {
+  width: 35px;
+  height: 35px;
+  border-radius: 15px;
 }
 
 .user-profile__text {

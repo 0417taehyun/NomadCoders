@@ -5,7 +5,7 @@
   padding: 20px 50px;
   box-sizing: border-box;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--gray);
 }
 
 .navigation-bar__ul {
