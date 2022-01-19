@@ -17,7 +17,7 @@
 
 ### :electron: 코코아톡 클론코딩
 
-> 강의는 [코코아톡 클론코딩]()에서 확인할 수 있습니다.
+> 강의는 [코코아톡 클론코딩](https://nomadcoders.co/kokoa-clone)에서 확인할 수 있습니다.
 
 ### :electron: 바닐라 JS로 크롬 앱 만들기
 

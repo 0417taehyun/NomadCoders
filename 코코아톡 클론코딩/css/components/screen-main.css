@@ -1,5 +1,6 @@
 .screen-main {
   padding: var(--horizontal-space);
+  margin-top: 80px;
 }
 
 .screen-main__header {
