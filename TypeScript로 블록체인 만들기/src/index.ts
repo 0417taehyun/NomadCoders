@@ -33,4 +33,30 @@ const sayHiInterface = (person: Human): string => {
 
 console.log(sayHiInterface(nico));
 
+// JavaScript에서 Interface를 사용하고 싶으면 Class를 사용하면 된다.
+// TypeScript에서 Class는 코드를 컨트롤 할 수 있도록 해준다.
+// Interface를 사용하는 게 TypeScript 측면에서 좀 더 안전하다.
+// 그러나 React, Express 등을 사용할 때 Class를 사용하게 되는데 이때는 private, public 등을 통해 보안 측면을 고려할 수 있다.
+
+class HumanClass {
+  public name: string;
+  private age: number; // 외부로부터 보호
+  public gender: string;
+
+  constructor(name: string, age: number, gender: string) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+  }
+}
+
+const lynn = new HumanClass("Lynn", 18, "female");
+
+const sayHiClass = (person: HumanClass): string => {
+  console.log("This is Class");
+  return `Hello ${person.name}! You are ${person.gender}`; // person.age > 오류 why? 클래스에서 private 키워드를 사용했기 때문에 외부에서 호출 불가능
+};
+
+console.log(sayHiClass(lynn));
+
 export {}; // 이 파일이 모듈이 된다는 걸 이해할 수 있도록 한다.
