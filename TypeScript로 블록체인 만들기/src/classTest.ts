@@ -29,4 +29,33 @@ class Human {
 
 const james = new Human("James", "ABCD1234");
 
-console.log(james.returnUserInfo());
+// console.log(james.returnUserInfo());
+
+class Student {
+  static staticMethod(): string {
+    console.log("This is Static Method");
+    console.log(this);
+    return `I cannot use instance variable ${this.name}!`;
+  }
+
+  public name: string;
+  private studentId: string;
+
+  constructor(name: string, studentId: string) {
+    this.name = name;
+    this.studentId = studentId;
+  }
+
+  instanceMethod(): string {
+    console.log("This is Instance Method");
+    console.log(this);
+    return `I can use instance variable! So, hi ${this.name}!`;
+  }
+}
+
+console.log(Student.staticMethod());
+
+const student = new Student("James", "ABCD1234");
+console.log(student.instanceMethod());
+
+console.log(Student.staticMethod());
