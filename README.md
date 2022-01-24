@@ -14,7 +14,7 @@
 
 #### :rocket: What I Learned
 
-> 결과물은 해당 [레포지토리](/TypeScript로%20블록체인%20만들기/README.md)에서 확인할 수 있습니다.
+> 결과물은 해당 [레포지토리](https://github.com/0417taehyun/NomadCoders/tree/main/TypeScript%EB%A1%9C%20%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8%20%EB%A7%8C%EB%93%A4%EA%B8%B0)에서 확인할 수 있습니다.
 
 아래와 같이 타입스크립트의 기본 문법을 학습했다. Static Method 및 Instance Method 차이를 알게 된 것이 가장 인상 깊었다. Static Method의 경우 아래와 같이 객체의 인스턴스를 별개로 생성하지 않아도 사용이 가능하지만 그래서 인스턴스 변수는 따로 사용할 수 없다.
 
