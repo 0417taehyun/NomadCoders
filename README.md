@@ -7,6 +7,7 @@
 - [:electron: 줌 클론코딩](#electron-줌-클론코딩)
 - [:electron: 코코아톡 클론코딩](#electron-코코아톡-클론코딩)
 - [:electron: 바닐라 JS로 크롬 앱 만들기](#electron-바닐라-js로-크롬-앱-만들기)
+- [:electron: ES6의 정석](#electron-es6의-정석)
 
 ### :electron: TypeScript로 블록체인 만들기
 
@@ -72,3 +73,7 @@ console.log(student.instanceMethod());
 ### :electron: 바닐라 JS로 크롬 앱 만들기
 
 > 강의는 [바닐라 JS로 크롬 앱 만들기](https://nomadcoders.co/javascript-for-beginners)에서 확인할 수 있습니다.
+
+### :electron: ES6의 정석
+
+> 강의는 [ES6의 정석](https://nomadcoders.co/es6-once-and-for-all)에서 확인할 수 있습니다.
