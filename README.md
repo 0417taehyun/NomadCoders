@@ -3,7 +3,6 @@
 ## :books: Talbe Of Contents
 
 - [:electron: TypeScript로 블록체인 만들기](#electron-typescript로-블록체인-만들기)
-  - [:rocket: What I Learned](#rocket-what-i-learned)
 - [:electron: 줌 클론코딩](#electron-줌-클론코딩)
 - [:electron: 코코아톡 클론코딩](#electron-코코아톡-클론코딩)
 - [:electron: 바닐라 JS로 크롬 앱 만들기](#electron-바닐라-js로-크롬-앱-만들기)
@@ -77,3 +76,13 @@ console.log(student.instanceMethod());
 ### :electron: ES6의 정석
 
 > 강의는 [ES6의 정석](https://nomadcoders.co/es6-once-and-for-all)에서 확인할 수 있습니다.
+
+#### :rocket: What I Learned
+
+> 결과물은 해당 [레포지토리]()에서 확인할 수 있습니다.
+
+##### `var`, `let`, `const` 차이
+
+호이스팅(Hoisting)
+
+일시적 비활성 구역(TDZ_Temporal Dead Zone)
