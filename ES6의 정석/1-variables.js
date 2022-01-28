@@ -69,3 +69,11 @@ if (true) {
 // console.log(first); > ReferenceError: first is not defined
 // console.log(second); > ReferenceError: second is not defined
 console.log(third); // > var
+
+// 앞서 이야기한 것처럼 var 키워드를 함수 내에서 사용할 경우 함수 범위(Function Scope)를 갖기 때문에 아래와 같이 변수 hello에 접근할 수 없다.
+
+function func() {
+  var hello = "Hello";
+}
+
+// console.log(hello); > ReferenceError: hello is not defined
