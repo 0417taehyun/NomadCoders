@@ -63,7 +63,7 @@ console.log(student.instanceMethod());
 
 > 강의는 [줌 클론코딩](https://nomadcoders.co/noom)에서 확인할 수 있습니다.
 
-#### What I Learned
+#### :rocket: What I Learned
 
 ### :electron: 코코아톡 클론코딩
 
@@ -72,6 +72,44 @@ console.log(student.instanceMethod());
 ### :electron: 바닐라 JS로 크롬 앱 만들기
 
 > 강의는 [바닐라 JS로 크롬 앱 만들기](https://nomadcoders.co/javascript-for-beginners)에서 확인할 수 있습니다.
+
+#### :rocket: What I Learned
+
+> 결과물은 해당 [레포지토리]()에서 확인할 수 있습니다.
+
+##### `null` vs `undefined`
+
+`null` 및 `undefined` 모두 값이 없다는 의미이다.
+
+`null`의 경우 명시적으로 값이 비어있다는 걸 나타낼 때 사용하며 따라서 의도적으로 개발자가 값을 할당해야만 한다. 주로 `const obj = {};`와 같이 변수를 초기화할 때 많이 사용한다.
+
+`undefined`의 경우 `const test;`와 같이 변수를 선언했을 때 할당되는 값이다. 따라서 모든 변수의 초깃값은 별도의 값을 할당하지 않으면 자동으로 `undefined`다.
+
+`null`과 `undefined`의 차이를 쉽게 풀어서 설명하면 `null`의 경우 값이 없는 값으로 등록이 되어 있는 것이고 `undefined`의 경우 값이 등록이 되어 있지 않은 것이다. 따라서 `null`은 선언, 등록을 위한 키워드이지만 `undefined`는 미리 선언된 전역 변수이다.
+
+###### 기타
+
+아래와 같이 `undefined`의 자료형을 출력하면 `undefined`가 나오지만, `null`의 자료형을 출력하면 히 원시형(Primitive Type) 중 하나이기 때문에 이는 자바스크립트 초기 버전의 오류다.
+
+```javascript
+console.log(typeof undefined); // > undefined
+console.log(typeof null); // > object
+```
+
+`typeof` 연산자는 해당 값이 `undefine`, `object`, `number` 등인지 확인하는 로직으로 이루어져 있는데 그 내부에 `null`인지 확인하는 항목이 누락되어 있어서 그 결과로 `object`를 출력하는 것이다.
+
+해당 부분을 고치기 위해 `typeof` 연산자를 수정하자는 제안이 있었지만 기존 `typeof` 연산자로 구현된 여러 웹 사이트 코드의 오류를 고려했을 때 이는 곧 자바스크립트 정신에 위배된다고 판단되었고, 그 결과 제안은 거절당했다. 이를 해결하기 위해서는 일치 연산자(`===`)를 사용하여 자료형을 확인하면 된다.
+
+```javascript
+const test = null;
+console.log(test === null); // > true
+```
+
+`null`은 아무런 값이 없다는 의미다. 값이 비어있다는 의미에 가깝다. > 파이썬에서의 `None`에 해당한다.
+
+`undefiend` 또한 값이 없다는 의미이이다.
+
+`null`은 자연적으로 발생하지 않는다. 값이 없다라는 것을 알려주려고 의도적으로 사용한다,.
 
 ### :electron: ES6의 정석
 
