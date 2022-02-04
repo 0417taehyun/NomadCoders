@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@17/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.querySelector("#root");
+
+    let counter = 0;
+    function countUp() {
+      counter += 1;
+      ReactDOM.render(<Container />, root); // > 최초의 랜더링 이후 변화된 부분을 다시 랜더링 해줘야 한다.
+    }
+
+    const Container = () => (
+      <div>
+        <h3>Total clicks: {counter}</h3>
+        <button onClick={countUp}>Click me</button>
+      </div>
+    );
+
+    // useState를 사용한 방법
+    function App() {
+      const [count, setCount] = React.useState(0); // 배열 [undefined, f]
+      const onClickCount = () => setCount(count + 1);
+
+      function Title() {
+        return <h3 className="count-title">Total Count: {count}</h3>;
+      }
+      function Button() {
+        return (
+          <button className="count-button" onClick={onClickCount}>
+            Click Here
+          </button>
+        );
+      }
+      return (
+        <div>
+          <Title />
+          <Button />
+        </div>
+      );
+    }
+
+    // ReactDOM.render(<Container />, root);
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
