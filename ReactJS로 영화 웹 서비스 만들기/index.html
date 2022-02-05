@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@17/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+  ></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function App() {
+      const root = document.querySelector("#root");
+      const categories = ["Time", "Temperature"];
+      let leftInput = "minues";
+      let rightInput = "hours";
+
+      const [values, setValues] = React.useState({
+        value: "",
+        convertedValue: "",
+      });
+      const [placeholders, setPlaceholders] = React.useState({
+        leftPlaceholder: "minutes",
+        rightPlaceholder: "hours",
+      });
+      const [category, setCategory] = React.useState("Time");
+      const [inverted, setInverted] = React.useState(false);
+
+      function onChangeHandle({ target: { value, name } }) {
+        if (category === "Time") {
+          if (name === "minutes") {
+            setValues({ value, convertedValue: value / 60 });
+          } else if (name === "hours") {
+            setValues({ value, convertedValue: value * 60 });
+          }
+        } else if (category === "Temperature") {
+          if (name === "celsius") {
+            setValues({ value, convertedValue: value * (9 / 5) + 32 });
+          } else if (name === "fahrenheit") {
+            setValues({ value, convertedValue: (value - 32) * (5 / 9) });
+          }
+        }
+      }
+
+      function onClickHandle() {
+        setValues({ value: "", convertedValue: "" });
+        setInverted((current) => setInverted(!current));
+      }
+
+      function onSelectHandle({ target: { value } }) {
+        setValues({ value: "", convertedValue: "" });
+
+        if (value === "Time") {
+          setPlaceholders({
+            leftPlaceholder: "minutes",
+            rightPlaceholder: "hours",
+          });
+        } else if (value === "Temperature") {
+          setPlaceholders({
+            leftPlaceholder: "celsius",
+            rightPlaceholder: "fahrenheit",
+          });
+        }
+        setCategory(value);
+      }
+
+      return (
+        <React.Fragment>
+          <h1 className="title">Converter</h1>
+          <select onChange={onSelectHandle}>
+            {categories.map((category) => {
+              return (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              );
+            })}
+          </select>
+          <div>
+            <input
+              name={placeholders.leftPlaceholder}
+              placeholder={placeholders.leftPlaceholder}
+              value={inverted ? values.convertedValue : values.value}
+              type="number"
+              onChange={onChangeHandle}
+              disabled={inverted === true}
+            />
+            <span>{"<->"}</span>
+            <input
+              name={placeholders.rightPlaceholder}
+              placeholder={placeholders.rightPlaceholder}
+              value={inverted ? values.value : values.convertedValue}
+              type="number"
+              onChange={onChangeHandle}
+              disabled={inverted === false}
+            />
+            <button onClick={onClickHandle}>Invert</button>
+          </div>
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
