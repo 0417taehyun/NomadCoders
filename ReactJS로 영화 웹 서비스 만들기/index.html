@@ -19,97 +19,59 @@
   ></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function App() {
-      const root = document.querySelector("#root");
-      const categories = ["Time", "Temperature"];
-      let leftInput = "minues";
-      let rightInput = "hours";
+    function First() {
+      const [input, setInput] = React.useState("");
 
-      const [values, setValues] = React.useState({
-        value: "",
-        convertedValue: "",
-      });
-      const [placeholders, setPlaceholders] = React.useState({
-        leftPlaceholder: "minutes",
-        rightPlaceholder: "hours",
-      });
-      const [category, setCategory] = React.useState("Time");
-      const [inverted, setInverted] = React.useState(false);
-
-      function onChangeHandle({ target: { value, name } }) {
-        if (category === "Time") {
-          if (name === "minutes") {
-            setValues({ value, convertedValue: value / 60 });
-          } else if (name === "hours") {
-            setValues({ value, convertedValue: value * 60 });
-          }
-        } else if (category === "Temperature") {
-          if (name === "celsius") {
-            setValues({ value, convertedValue: value * (9 / 5) + 32 });
-          } else if (name === "fahrenheit") {
-            setValues({ value, convertedValue: (value - 32) * (5 / 9) });
-          }
-        }
-      }
-
-      function onClickHandle() {
-        setValues({ value: "", convertedValue: "" });
-        setInverted((current) => setInverted(!current));
-      }
-
-      function onSelectHandle({ target: { value } }) {
-        setValues({ value: "", convertedValue: "" });
-
-        if (value === "Time") {
-          setPlaceholders({
-            leftPlaceholder: "minutes",
-            rightPlaceholder: "hours",
-          });
-        } else if (value === "Temperature") {
-          setPlaceholders({
-            leftPlaceholder: "celsius",
-            rightPlaceholder: "fahrenheit",
-          });
-        }
-        setCategory(value);
-      }
+      const onChangeHandle = ({ target: { value } }) => {
+        setInput(value);
+      };
 
       return (
         <React.Fragment>
-          <h1 className="title">Converter</h1>
-          <select onChange={onSelectHandle}>
-            {categories.map((category) => {
-              return (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              );
-            })}
-          </select>
-          <div>
-            <input
-              name={placeholders.leftPlaceholder}
-              placeholder={placeholders.leftPlaceholder}
-              value={inverted ? values.convertedValue : values.value}
-              type="number"
-              onChange={onChangeHandle}
-              disabled={inverted === true}
-            />
-            <span>{"<->"}</span>
-            <input
-              name={placeholders.rightPlaceholder}
-              placeholder={placeholders.rightPlaceholder}
-              value={inverted ? values.value : values.convertedValue}
-              type="number"
-              onChange={onChangeHandle}
-              disabled={inverted === false}
-            />
-            <button onClick={onClickHandle}>Invert</button>
-          </div>
+          <h3>This is First</h3>
+          <input placeholder="this is first" onChange={onChangeHandle}></input>
+          <span>You type: {input}</span>
         </React.Fragment>
       );
     }
+    function Second() {
+      const [input, setInput] = React.useState("");
 
+      const onChangeHandle = ({ target: { value } }) => {
+        setInput(value);
+      };
+
+      return (
+        <React.Fragment>
+          <h3>This is Second</h3>
+          <input placeholder="this is second" onChange={onChangeHandle}></input>
+          <span>You type: {input}</span>
+        </React.Fragment>
+      );
+    }
+    function App() {
+      const root = document.querySelector("#root");
+      const [index, setIndex] = React.useState("0");
+
+      const onChangeHandle = ({ target: { value } }) => {
+        setIndex(value);
+      };
+
+      // JSX에서 if-else / swtich-case 조건문은 사용 불가능하다.
+      // 따라서 JSX에서는 삼항연산자를 사용한다.
+
+      return (
+        <React.Fragment>
+          <h1>Welcome!</h1>
+          <select value={index} onChange={onChangeHandle}>
+            <option value="0">First</option>
+            <option value="1">Second</option>
+          </select>
+          {index === "0" ? <First /> : null}
+          {index === "1" ? <Second /> : null}
+        </React.Fragment>
+      );
+    }
     ReactDOM.render(<App />, root);
   </script>
 </html>
